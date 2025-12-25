@@ -1,35 +1,101 @@
+/* Base */
+:root{
+  --bg:#000;
+  --card: rgba(10,10,10,.78);
+  --text:#fff;
+  --muted:#b8b8b8;
+  --radius:22px;
+}
 
-body {
-  margin: 0;
+*{box-sizing:border-box}
+body{
+  margin:0;
   font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  text-align: center;
+  background: var(--bg);
+  color: var(--text);
+  text-align:center;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 28px 16px 22px;
 }
-header {
-  padding: 40px 20px;
+
+/* Logo en fond d'écran (filigrane) */
+.bg-logo{
+  position: fixed;
+  inset: 0;
+  background: url("logo-bg.png") center/420px no-repeat;
+  opacity: .10;          /* ajuste ici (0.06 à 0.18) */
+  filter: grayscale(1) contrast(1.2);
+  pointer-events: none;
+  z-index: 0;
 }
-.about {
-  padding: 20px;
+
+/* Cards */
+.card{
+  width: min(720px, 100%);
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 26px 18px;
+  backdrop-filter: blur(8px);
+  z-index: 1;
 }
-.buttons {
-  margin: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+
+header.card{
+  margin-top: 10px;
 }
-.btn {
-  padding: 15px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
+h1{
+  margin:0 0 8px;
+  letter-spacing: 1px;
+}
+header p{
+  margin:0;
+  color: var(--muted);
+}
+
+.about{
+  margin-bottom: 18px;
+}
+.about h2{
+  margin: 0 0 10px;
+}
+.about p{
+  margin: 0;
+  color: #e7e7e7;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.buttons{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.btn{
+  display:block;
+  padding: 14px 16px;
+  border-radius: 999px;
+  text-decoration:none;
   font-size: 18px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,.10);
 }
-.call { background: #444; }
-.whatsapp { background: #25D366; }
-.snapchat { background: #FFFC00; color: #000; }
-footer {
-  padding: 20px;
-  font-size: 14px;
-  color: #aaa;
+
+.call{ background:#2b2b2b; color:#fff; }
+.whatsapp{ background:#25D366; color:#000; }
+.snapchat{ background:#FFFC00; color:#000; }
+.mail{ background:#111; color:#fff; }
+
+.btn:active{ transform: scale(.99); }
+
+/* Footer */
+.footer{
+  margin-top: 16px;
+  color: var(--muted);
+  z-index:1;
 }
+.footer .small{ font-size: 12px; color:#8f8f8f; margin-top:6px; }
